@@ -1,0 +1,21 @@
+{
+    "name": "point-red/laravel-database-management",
+    "description": "Get info about your database",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Martien Dermawan Tanama",
+            "email": "martiendt@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PointRed\\LaravelDatabaseManagement\\DatabaseManagementServiceProvider"
+            ]
+        }
+    }
+}
