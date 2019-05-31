@@ -19,4 +19,14 @@ class DatabaseManagement {
 
         return UnitConverter::convertAuto($dbSize);
     }
+
+    public static function getTables($databaseName, $connection = 'mysql') {
+        config()->set('database.connections.'.$connection.'.database', $databaseName);
+
+        $result = DB::select('SHOW TABLES');
+
+        $result = array_column($result, 'Tables_in_' . $databaseName);
+
+        return $result;
+    }
 }
