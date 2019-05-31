@@ -9,7 +9,7 @@ class DatabaseManagement {
     public static function getSize($databaseName, $connection = 'mysql') {
         config()->set('database.connections.'.$connection.'.database', $databaseName);
 
-        $result = DB::select('SHOW TABLE STATUS');
+        $result = DB::connection($connection)->select('SHOW TABLE STATUS');
 
         $dbSize = 0;
 
@@ -23,7 +23,7 @@ class DatabaseManagement {
     public static function getTables($databaseName, $connection = 'mysql') {
         config()->set('database.connections.'.$connection.'.database', $databaseName);
 
-        $result = DB::select('SHOW TABLES');
+        $result = DB::connection($connection)->select('SHOW TABLES');
 
         $result = array_column($result, 'Tables_in_' . $databaseName);
 
