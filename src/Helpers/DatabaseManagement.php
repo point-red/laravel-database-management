@@ -29,4 +29,12 @@ class DatabaseManagement {
 
         return $result;
     }
+
+    public static function getData($databaseName, $tableName, $connection = 'mysql') {
+        config()->set('database.connections.'.$connection.'.database', $databaseName);
+
+        $result = DB::connection($connection)->table($tableName)->select('*')->pagination(100);
+
+        return $result;
+    }
 }

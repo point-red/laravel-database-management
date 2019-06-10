@@ -30,3 +30,18 @@ if (! function_exists('dbm_get_tables')) {
         return DatabaseManagement::getTables($databaseName, $connection);
     }
 }
+
+if (! function_exists('dbm_get_data')) {
+    /**
+     * Get rows of table
+     *
+     * @param $databaseName
+     * @param $tableName
+     * @param string $connection
+     * @return array
+     */
+    function dbm_get_data($databaseName, $tableName, $connection = 'mysql')
+    {
+        return DatabaseManagement::getData($databaseName, $tableName, $connection);
+    }
+}
