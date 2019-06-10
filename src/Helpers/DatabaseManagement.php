@@ -33,7 +33,7 @@ class DatabaseManagement {
     public static function getData($databaseName, $tableName, $connection = 'mysql') {
         config()->set('database.connections.'.$connection.'.database', $databaseName);
 
-        $result = DB::connection($connection)->table($tableName)->select('*')->pagination(100);
+        $result = DB::connection($connection)->table($tableName)->select('*')->paginate(100);
 
         return $result;
     }
